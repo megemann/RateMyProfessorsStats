@@ -3,10 +3,13 @@ import requests
 import time
 import base64
 import pandas as pd
+from Class_Mapping import get_mapping_for_professor, get_median_grade_by_class
 from Continous_Temporal import get_avg_difficulty, get_rolling_avg_difficulty, get_avg_quality, get_rolling_avg_quality, get_avg_would_take_again, get_rolling_avg_would_take_again
-from Statistics import get_mean_difficulty, get_mean_quality, get_would_take_again_percentage, get_attendance_mandatory_percentage, get_top_tags, get_comment_length, get_is_online_percentage, get_is_for_credit_percentage
+from Statistics import get_mean_difficulty, get_mean_quality, get_would_take_again_percentage, get_attendance_mandatory_percentage, get_top_tags, get_comment_length, get_is_online_percentage, get_is_for_credit_percentage, get_tag_score
 from Discrete_Temporal import get_mandatory_attendance_by_year, get_reviews_by_month_year
 from Categorical import get_rating_tags_distribution, get_quality_distribution, get_difficulty_distribution, get_grade_distribution
+from Sentiment import get_sentiment, avg_sentiment_over_time, rolling_avg_sentiment
+from Summarize import summarize_reviews
 #delete imports
 import matplotlib.pyplot as plt
 
@@ -146,12 +149,30 @@ def analyze_reviews(pid: str, params: dict):
     Categorical['rating_tags_distribution'] = get_rating_tags_distribution(reviews)
     Categorical['quality_distribution'] = get_quality_distribution(reviews)
     Categorical['difficulty_distribution'] = get_difficulty_distribution(reviews)
+    
+    Statistics['tag_score'] = get_tag_score(Categorical['rating_tags_distribution'])
+
+    Class_Mapping = {}
+    Class_Mapping = get_mapping_for_professor(reviews)
+
+    Categorical['grade_distribution'] = get_median_grade_by_class(reviews, Class_Mapping)
+
+    Sentiment = {}
+    Sentiment['sentiment'] = get_sentiment(reviews)
+    Sentiment['avg_sentiment_over_time'] = avg_sentiment_over_time(Sentiment['sentiment'])
+    Sentiment['rolling_avg_sentiment'] = rolling_avg_sentiment(Sentiment['sentiment'])
+
+    Summary = {}
+    Summary['summary'] = summarize_reviews(reviews)
 
     data['Continous_Temporal'] = Continous_Temporal
     data['Statistics'] = Statistics
     data['Discrete_Temporal'] = Discrete_Temporal
     data['Categorical'] = Categorical
+    data['Class_Mapping'] = Class_Mapping
     data['reviews'] = reviews
+    data['Sentiment'] = Sentiment
+    data['Summary'] = Summary
 
     return data
 
@@ -191,6 +212,8 @@ def display_V1(result):
         if 'attendance_mandatory_percentage' in result['Discrete_Temporal']:
             plt.figure(figsize=(10, 6))
             attendance_mandatory = result['Discrete_Temporal']['attendance_mandatory_percentage']
+            # Convert datetime string to datetime objects first
+            attendance_mandatory['datetime'] = pd.to_datetime(attendance_mandatory['datetime'])
             plt.bar(attendance_mandatory['datetime'].dt.year, attendance_mandatory['attendance_mandatory_percentage'])
             plt.xlabel('Year')
             plt.ylabel('Attendance Mandatory Percentage')
@@ -207,7 +230,64 @@ def display_V1(result):
             plt.title(f'Distribution of {key}')
             plt.show()
 
+    if 'Class_Mapping' in result:
+        class_mapping, has_majority_digits = result['Class_Mapping']
+
+        # Pretty print the class mapping dictionary
+        print("Class Mapping:")
+        print("-" * 50)
+        for class_number, details in class_mapping.items():
+            print(f"Class Number: {class_number}")
+            if 'prefix' in details:
+                print(f"  Prefix: '{details['prefix']}'")
+            if 'suffix' in details:
+                print(f"  Suffix: '{details['suffix']}'")
+            print(f"  Classes: {', '.join(details['list']) if details['list'] else 'None'}")
+            print("-" * 50)
+
+        print(f"Has majority digit pattern: {has_majority_digits}")
+
+    if 'Sentiment' in result:
+        # Plot the distribution of normalized sentiment polarity
+        if 'normalized_polarity' in result['Sentiment']['sentiment']:
+            plt.figure(figsize=(10, 6))
+            # Create histogram of normalized polarity values
+            plt.hist(result['Sentiment']['sentiment']['normalized_polarity'], bins=20, alpha=0.7, color='skyblue')
+            plt.xlabel('Normalized Sentiment Polarity')
+            plt.ylabel('Frequency')
+            plt.title('Distribution of Normalized Review Sentiment')
+            plt.axvline(x=0, color='red', linestyle='--', label='Neutral Sentiment')
+            plt.legend()
+            plt.grid(True, linestyle='--', alpha=0.7)
+            plt.tight_layout()
+            plt.show()
+
+        # Handle each sentiment analysis result separately with proper key access
+        if 'avg_sentiment_over_time' in result['Sentiment']:
+            plt.figure(figsize=(10, 6))
+            data = result['Sentiment']['avg_sentiment_over_time']
+            plt.plot(data['datetime'], data['avg_sentiment'])
+            plt.xlabel('Date')
+            plt.ylabel('Average Sentiment')
+            plt.title('Average Sentiment Over Time')
+            plt.show()
+            
+        if 'rolling_avg_sentiment' in result['Sentiment']:
+            plt.figure(figsize=(10, 6))
+            data = result['Sentiment']['rolling_avg_sentiment']
+            plt.plot(data['datetime'], data['rolling_avg_sentiment'])
+            plt.xlabel('Date')
+            plt.ylabel('Rolling Average Sentiment')
+            plt.title('Rolling Average Sentiment Over Time')
+            plt.show()
+
+    if 'Summary' in result:
+        print(result['Summary']['summary'])
+
+       
 
 if __name__ == "__main__":
     result = analyze_reviews(1918813, {})
-    display_V1(result)
+    summary = {}
+    summary['Summary'] = result['Summary']
+    display_V1(summary)
