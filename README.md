@@ -1,4 +1,13 @@
-# 🎓 Rate My Professor Statistics - Comprehensive Analysis Platform
+# Rate My Professor Statistics - Comprehensive Analysis Platform
+
+<p align="center">
+  <a href="https://rmpstats.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/Live%20Demo-RMPStats-blueviolet?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmZmIiBoZWlnaHQ9IjQ0IiB3aWR0aD0iNDQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDEuMEM2LjEsMS4wIDEsNi4xIDEsMTJzNS4xLDExLjEgMTEsMTEuMSAxMS4wLTUuMSAxMS0xMS4xU18xMiwxLjB6TTExLDE3aDJ2LTJoLTJWMTh6TTEzLjUsOGMtLjgsMC0xLjUuNy0xLjUsMS41czAuNywxLjUgMS41LDEuNSA3LS43IDctMS41IC0uNy0xLjUtMS41LTF6Ii8+PC9zdmc+" alt="Live Demo" height="28">
+    <strong>View the Live RMP Stats Dashboard &rarr;</strong>
+  </a>
+</p>
+
+
 
 <div align="center">
 
@@ -13,56 +22,56 @@
 
 </div>
 
-## 📋 Table of Contents
+## Table of Contents
 
-- [🎯 Project Overview](#-project-overview)
-- [✨ Key Features](#-key-features)
-- [🏗️ Technology Stack](#️-technology-stack)
-- [🔬 Research Components](#-research-components)
-- [📊 Data Analysis & Machine Learning](#-data-analysis--machine-learning)
-- [🖥️ Frontend Dashboard](#️-frontend-dashboard)
-- [🤖 Backend & ML Services](#-backend--ml-services)
-- [🚀 Getting Started](#-getting-started)
-- [📁 Project Structure](#-project-structure)
-- [📝 API Documentation](#-api-documentation)
-- [🔄 Deployment](#-deployment)
+- [Project Overview](#-project-overview)
+- [Key Features](#-key-features)
+- [Technology Stack](#️-technology-stack)
+- [Research Components](#-research-components)
+- [Data Analysis & Machine Learning](#-data-analysis--machine-learning)
+- [Frontend Dashboard](#️-frontend-dashboard)
+- [Backend & ML Services](#-backend--ml-services)
+- [Getting Started](#-getting-started)
+- [Project Structure](#-project-structure)
+- [API Documentation](#-api-documentation)
+- [Deployment](#-deployment)
 
-## 🎯 Project Overview
+## Project Overview
 
 The **Rate My Professor Statistics Platform** is a comprehensive full-stack application that provides deep insights into professor performance data from Rate My Professor. This project combines advanced data science techniques, machine learning models, and modern web technologies to deliver actionable analytics for students, educators, and researchers.
 
-### 🎪 What Makes This Project Special
+### What Makes This Project Special
 
-- **🔍 Big Data Processing**: Analyzing 100+ universities with millions of reviews
-- **🧠 Advanced ML Pipeline**: Custom sentiment analysis, temporal modeling, and statistical inference
-- **📊 Interactive Visualizations**: Real-time charts, distributions, and comparative analytics
-- **🎯 Class-Level Filtering**: Granular analysis by specific courses and class mappings
-- **⚡ Real-Time Performance**: Optimized for fast query processing and responsive UI
-- **🔄 Scalable Architecture**: Modular design supporting easy expansion and maintenance
+- **Big Data Processing**: Analyzing 100+ universities with millions of reviews
+- **Advanced ML Pipeline**: Custom sentiment analysis, temporal modeling, and statistical inference
+- **Interactive Visualizations**: Real-time charts, distributions, and comparative analytics
+- **Class-Level Filtering**: Granular analysis by specific courses and class mappings
+- **Real-Time Performance**: Optimized for fast query processing and responsive UI
+- **Scalable Architecture**: Modular design supporting easy expansion and maintenance
 
-## ✨ Key Features
+## Key Features
 
-### 🔬 **Advanced Analytics Engine**
+### **Advanced Analytics Engine**
 - **Temporal Analysis**: Track professor performance trends over time with rolling averages
 - **Sentiment Analysis**: AI-powered sentiment scoring with normalized polarity distributions
 - **Statistical Modeling**: Comprehensive statistical breakdowns with confidence intervals
 - **Class Mapping**: Intelligent course grouping and filtering system
 - **Tag Analysis**: Automated extraction and analysis of review themes
 
-### 📊 **Interactive Dashboard**
+### **Interactive Dashboard**
 - **Professor Search**: Smart search across 100+ universities with autocomplete
 - **Dynamic Visualizations**: Interactive charts built with Recharts
 - **Real-Time Filtering**: Class-based filtering with instant results
 - **Responsive Design**: Mobile-first approach with dark/light mode support
 - **Debug Tools**: Development-mode analytics for data validation
 
-### 🤖 **Machine Learning Pipeline**
+### **Machine Learning Pipeline**
 - **Custom Sentiment Models**: Fine-tuned sentiment analysis for academic reviews
 - **Automated Summarization**: AI-generated professor summaries using Google Gemini
 - **Pattern Recognition**: Identification of teaching style patterns and student preferences
 - **Predictive Analytics**: Grade distribution predictions and difficulty assessments
 
-## 🏗️ Technology Stack
+## Technology Stack
 
 ### **Frontend Technologies**
 ```typescript
@@ -111,9 +120,9 @@ gradio>=3.0.0          # ML model interface
 requests>=2.25.0       # API communications
 ```
 
-## 🔬 Research Components
+## Research Components
 
-### 📚 **Jupyter Notebooks**
+### **Jupyter Notebooks**
 
 #### **T100Dataset Analysis**
 - **`Sentiment.ipynb`**: Advanced sentiment analysis pipeline processing millions of reviews
@@ -126,27 +135,27 @@ requests>=2.25.0       # API communications
 - **Mapping Systems**: `initial_mapping.pkl` and `revised_mapping.pkl` for course classifications
 - **Statistical Models**: Advanced statistical inference and trend analysis
 
-## 📊 Data Analysis & Machine Learning
+## Data Analysis & Machine Learning
 
-### **🧮 Statistical Analysis Module** (`Statistics.py`)
+### **Statistical Analysis Module** (`Statistics.py`)
 - Mean quality and difficulty calculations
 - Percentage distributions (would take again, attendance mandatory)
 - Tag scoring and frequency analysis
 - Comment length analytics
 
-### **📈 Temporal Analysis** (`Continous_Temporal.py`, `Discrete_Temporal.py`)
+### **Temporal Analysis** (`Continous_Temporal.py`, `Discrete_Temporal.py`)
 - Continuous metrics: Quality, difficulty, and sentiment over time
 - Discrete metrics: Reviews by month/year, attendance patterns
 - Rolling average calculations with configurable windows
 - Seasonal trend detection
 
-### **🎯 Categorical Analysis** (`Categorical.py`)
+### **Categorical Analysis** (`Categorical.py`)
 - Rating distributions (1-5 scale analysis)
 - Grade distributions with class-level breakdowns
 - Tag distribution analysis with frequency mapping
 - Difficulty distribution modeling
 
-### **💭 Sentiment Analysis Pipeline** (`Sentiment.py`)
+### **Sentiment Analysis Pipeline** (`Sentiment.py`)
 ```python
 # Advanced sentiment processing
 def analyze_sentiment(review_text):
@@ -160,21 +169,21 @@ def analyze_sentiment(review_text):
     }
 ```
 
-### **📝 AI Summarization** (`Summarize.py`)
+### **AI Summarization** (`Summarize.py`)
 - Google Gemini integration for intelligent summaries
 - Custom prompt engineering for academic context
 - Multi-aspect analysis (strengths, weaknesses, teaching style)
 - Automated insight generation
 
-## 🖥️ Frontend Dashboard
+## Frontend Dashboard
 
-### **🎨 Modern UI/UX Design**
+### **Modern UI/UX Design**
 - **Responsive Grid Layout**: CSS Grid + Flexbox for optimal layout
 - **Interactive Charts**: Recharts integration with custom styling
 - **Dynamic Theming**: CSS variables for consistent dark/light modes
 - **Smooth Animations**: Transition effects and loading states
 
-### **📊 Visualization Components**
+### **Visualization Components**
 
 #### **Time Series Analysis**
 ```typescript
@@ -195,15 +204,15 @@ def analyze_sentiment(review_text):
 </ComposedChart>
 ```
 
-### **🔍 Advanced Search Features**
+### **Advanced Search Features**
 - **University Search**: Autocomplete with 100+ institutions
 - **Professor Lookup**: Smart search with fuzzy matching
 - **Class Filtering**: Dynamic class selection with real-time updates
 - **Cache Management**: Optimized caching for fast response times
 
-## 🤖 Backend & ML Services
+## Backend & ML Services
 
-### **🔌 API Architecture**
+### **API Architecture**
 
 #### **Core Endpoints**
 ```typescript
@@ -233,9 +242,9 @@ def analyze_reviews(professor_id: str, window: str, selected_class: str):
     }
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
-### **📋 Prerequisites**
+### **Prerequisites**
 ```bash
 # Required software
 Node.js 18+ and npm
@@ -244,7 +253,7 @@ MongoDB Atlas account
 Git
 ```
 
-### **⚡ Quick Setup**
+### **Quick Setup**
 
 #### **1. Clone the Repository**
 ```bash
@@ -279,12 +288,12 @@ python app.py
 - **Frontend**: `http://localhost:3000`
 - **ML Interface**: `http://localhost:7860` (Gradio)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 RateMyProfessorStats/
-├── 📊 RMPStatsDashboard/           # Next.js Frontend Application
-│   ├── 🎨 src/
+├── RMPStatsDashboard/           # Next.js Frontend Application
+│   ├── src/
 │   │   ├── app/                    # Next.js App Router
 │   │   │   ├── pages/              # Page components
 │   │   │   ├── api/                # API routes
@@ -296,10 +305,10 @@ RateMyProfessorStats/
 │   │   │   ├── Class_Mapping.py    # Course classification
 │   │   │   └── Summarize.py        # AI summarization
 │   │   └── lib/                    # Utility functions
-│   ├── 📦 public/                  # Static assets
-│   ├── 🔧 package.json             # Dependencies
-│   └── ⚙️ next.config.js           # Next.js configuration
-├── 📔 Notebooks/                   # Research & Analysis
+│   ├── public/                  # Static assets
+│   ├── package.json             # Dependencies
+│   └── next.config.js           # Next.js configuration
+├── Notebooks/                   # Research & Analysis
 │   ├── T100Dataset/                # Top 100 universities analysis
 │   │   ├── Sentiment.ipynb         # Sentiment analysis research
 │   │   ├── ClassDivision.ipynb     # Course mapping algorithms
@@ -307,14 +316,14 @@ RateMyProfessorStats/
 │   │   └── normalization_data/     # Data normalization
 │   ├── Dashboard/                  # Dashboard prototypes
 │   └── UMassDataset/              # University-specific analysis
-├── 🗃️ RMPT100Reviews/             # Raw data (100+ universities)
+├── RMPT100Reviews/             # Raw data (100+ universities)
 │   └── universities/               # University-specific datasets
-└── 📋 README.md                   # This comprehensive guide
+└── README.md                   # This comprehensive guide
 ```
 
-## 📝 API Documentation
+## API Documentation
 
-### **🔍 Search Endpoints**
+### **Search Endpoints**
 
 #### **University Search**
 ```http
@@ -355,9 +364,9 @@ Response:
 }
 ```
 
-## 🔄 Deployment
+## Deployment
 
-### **🚀 Production Deployment**
+### **Production Deployment**
 
 #### **Frontend (Vercel)**
 ```bash
@@ -372,7 +381,7 @@ npx vercel --prod
 ```yaml
 # spaces-config.yml
 title: RMP Statistics ML Pipeline
-emoji: 📊
+emoji: 
 colorFrom: blue
 colorTo: green
 sdk: gradio
@@ -381,37 +390,37 @@ app_file: app.py
 python_version: 3.10
 ```
 
-## 🎯 Key Achievements
+## Key Achievements
 
-### **📈 Technical Accomplishments**
-- **🔢 Big Data Processing**: Successfully processed millions of reviews from 100+ universities
-- **⚡ Performance Optimization**: Achieved sub-second response times for complex analytics
-- **🤖 AI Integration**: Implemented Google Gemini for intelligent summarization
-- **📊 Advanced Visualizations**: Created interactive charts with Recharts
-- **🔄 Real-time Analytics**: Built responsive filtering and analysis pipeline
+### **Technical Accomplishments**
+- **Big Data Processing**: Successfully processed millions of reviews from 100+ universities
+- **Performance Optimization**: Achieved sub-second response times for complex analytics
+- **AI Integration**: Implemented Google Gemini for intelligent summarization
+- **Advanced Visualizations**: Created interactive charts with Recharts
+- **Real-time Analytics**: Built responsive filtering and analysis pipeline
 
-### **🔬 Research Impact**
-- **📚 Comprehensive Analysis**: Developed novel approaches to professor performance analysis
-- **🎯 Class-Level Insights**: Created intelligent course mapping and filtering systems
-- **📈 Temporal Modeling**: Implemented rolling window analysis for trend detection
-- **💭 Sentiment Analysis**: Built custom sentiment scoring for academic reviews
+### **Research Impact**
+- **Comprehensive Analysis**: Developed novel approaches to professor performance analysis
+- **Class-Level Insights**: Created intelligent course mapping and filtering systems
+- **Temporal Modeling**: Implemented rolling window analysis for trend detection
+- **Sentiment Analysis**: Built custom sentiment scoring for academic reviews
 
-### **🏗️ Architecture Excellence**
-- **🔧 Modular Design**: Clean separation between frontend, backend, and ML components
-- **📱 Responsive UI**: Mobile-first design with dark/light mode support
-- **⚡ Scalable Backend**: Optimized API routes with caching strategies
-- **🤖 ML Pipeline**: Gradio-based ML serving with Hugging Face integration
+### **Architecture Excellence**
+- **Modular Design**: Clean separation between frontend, backend, and ML components
+- **Responsive UI**: Mobile-first design with dark/light mode support
+- **Scalable Backend**: Optimized API routes with caching strategies
+- **ML Pipeline**: Gradio-based ML serving with Hugging Face integration
 
-## 🤝 Contributing
+## Contributing
 
-### **🔧 Development Guidelines**
+### **Development Guidelines**
 1. **Fork** the repository
 2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
 3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
 4. **Push** to the branch (`git push origin feature/amazing-feature`)
 5. **Open** a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
@@ -419,11 +428,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-### 🌟 Show Your Support
+### Show Your Support
 
-If this project has been helpful to you, please consider giving it a ⭐ star!
+If this project has been helpful to you, please consider giving it a star!
 
-**Made with ❤️ and lots of ☕**
+**Made with love and lots of coffee**
 
 *A comprehensive platform showcasing advanced data science, machine learning, and full-stack development skills*
 
